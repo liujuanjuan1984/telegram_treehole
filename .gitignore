@@ -127,3 +127,12 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# my
+*.pynb 
+*private.py
+temp*.*
+*.ipynb
+*copy.py
+temp/
+local*.py

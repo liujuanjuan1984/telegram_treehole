@@ -1,0 +1,4 @@
+python-telegram-bot==13.12
+quorum-data-py
+quorum-mininode-py  
+eth-account==0.5.8
