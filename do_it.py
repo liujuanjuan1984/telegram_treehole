@@ -1,11 +1,10 @@
 import logging
-import os
 
 from telegram_treehole_bot import TelegramTreeholeBot
 
 logging.basicConfig(
     level=logging.INFO,
-    format="%(name)s - %(asctime)s - %(levelname)s - %(message)s",
+    format="%(asctime)s - %(levelname)s - %(name)s - %(message)s",
 )
 
 
