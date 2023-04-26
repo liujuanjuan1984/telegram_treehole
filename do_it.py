@@ -12,6 +12,7 @@ class Config:
     RUM_SEED = "rum://seed?v=1&e=0&n=0&c=qOh_wTyuoKDoXxxxxxIaH5sa9TCLPkHCnpnROM8"
     ETH_PVTKEY = "0x5ee77ca3...effaf"
     FEED_URL_BASE = "https://example.com"
+    FEED_TITLE = "My Treehole"
     TG_BOT_TOKEN = "1234566767:mybotkey"  # bot token
     TG_BOT_NAME = "@MyBotName"
     TG_CHANNEL_NAME = "@MyChannelName"

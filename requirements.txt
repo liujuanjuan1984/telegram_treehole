@@ -1,4 +1,4 @@
-python-telegram-bot==13.12
+python-telegram-bot==20.2
 quorum-data-py
 quorum-mininode-py  
 eth-account==0.5.8
