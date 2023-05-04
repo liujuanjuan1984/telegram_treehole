@@ -12,7 +12,7 @@ from quorum_data_py import feed
 from quorum_mininode_py import MiniNode
 from telegram.ext import Application, MessageHandler, filters
 
-__version__ = "0.4.0"
+__version__ = "0.4.1"
 logger = logging.getLogger(__name__)
 logger.info("Version %s", __version__)
 
@@ -32,12 +32,12 @@ class TelegramToRumBot:
 
     def _get_text(self, _text):
         text = _text
-        header = self.config.HEADER_TAG
-        footer = self.config.FOOTER_TAG
+        header = self.config.HEADER_TAG.replace(" ", "")
+        footer = self.config.FOOTER_TAG.replace(" ", "")
         if header and header not in _text:
-            text = header + _text
+            text = header + " " + _text
         if footer and footer not in _text:
-            text += footer
+            text += " " + footer
         return text
 
     async def handle_private_chat(self, update, context):
@@ -50,6 +50,7 @@ class TelegramToRumBot:
             ):
                 await update.message.reply_text(
                     "⚠️ You are not allowed to use this bot.",
+                    reply_to_message_id=update.message.message_id,
                 )
                 return
 
@@ -64,6 +65,7 @@ class TelegramToRumBot:
             if len(_text) > 1000 or len(_text) < 10:
                 await update.message.reply_text(
                     "⚠️ Message length must be between 10 and 1000 characters.",
+                    reply_to_message_id=update.message.message_id,
                 )
                 return
 
@@ -98,7 +100,9 @@ class TelegramToRumBot:
         logger.info("feed_url %s", feed_url)
         reply = f"⚜️ Success to blockchain.\n👉[{self.config.FEED_TITLE}]({feed_url})"
 
-        await update.message.reply_text(reply, parse_mode="Markdown")
+        await update.message.reply_text(
+            reply, parse_mode="Markdown", reply_to_message_id=update.message.message_id
+        )
         logger.info("send reply done to user done.")
 
     def run(self):

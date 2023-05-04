@@ -18,7 +18,7 @@ class Config:
     TG_BOT_NAME = "@MyBotName"
     Developer = "@MyTelegramName"
     Seconds = 5  # no spam; each 5 seconds can only post one treehole
-    HEADER_TAG = "#Treehole "
+    HEADER_TAG = "#Treehole"
     FOOTER_TAG = ""
 
 
