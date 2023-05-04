@@ -1,8 +1,14 @@
-# Telegram Treehole
+# Telegram To Rum Bot
 
-A telegram bot that accepts text submissions, sends them to the blockchain(rum group), and generates a secret message (treehole). All secret messages are signed with the same key for anonymity, so no one knows who posted which secret message.
+A telegram bot accepts messages and sends them to the blockchain of RumNetwork. 
 
-About QuoRum (support the blockchain to store content):
+All messages are signed with the same key for anonymity.
+
+It can be used as treehole and accepts messages from different users. 
+
+It can also be used as a notebook that accept forward messages from one user or some users in the config.USERS.
+
+More about QuoRum (support the blockchain to store content):
 
 - https://rumsystem.net/
 - https://github.com/rumsystem/quorum
