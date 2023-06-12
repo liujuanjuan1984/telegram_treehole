@@ -12,7 +12,7 @@ from quorum_data_py import feed
 from quorum_mininode_py import MiniNode
 from telegram.ext import Application, MessageHandler, filters
 
-__version__ = "0.4.1"
+__version__ = "0.4.2"
 logger = logging.getLogger(__name__)
 logger.info("Version %s", __version__)
 
@@ -79,13 +79,14 @@ class TelegramToRumBot:
         else:
             data = feed.new_post(content=text)
 
-        data["origin"] = {"type": "telegram", "name": self.config.TG_BOT_NAME}
+        if self.config.ADD_ORIGIN:
+            data["origin"] = {"type": "telegram", "name": self.config.TG_BOT_NAME}
 
-        if update.message.forward_from_chat:
-            name = update.message.forward_from_chat.username
-            url = f"https://t.me/{name}/{update.message.forward_from_message_id}"
-            data["origin"]["name"] = name
-            data["origin"]["url"] = url
+            if update.message.forward_from_chat:
+                name = update.message.forward_from_chat.username
+                url = f"https://t.me/{name}/{update.message.forward_from_message_id}"
+                data["origin"]["name"] = name
+                data["origin"]["url"] = url
 
         resp = self.rum.api.post_content(data)
 

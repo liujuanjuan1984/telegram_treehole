@@ -20,6 +20,7 @@ class Config:
     Seconds = 5  # no spam; each 5 seconds can only post one treehole
     HEADER_TAG = "#Treehole"
     FOOTER_TAG = ""
+    ADD_ORIGIN = True
 
 
 if __name__ == "__main__":
